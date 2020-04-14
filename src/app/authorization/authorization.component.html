@@ -1,0 +1,29 @@
+
+<mat-card>
+  <div class="title">
+    <div class="title-text">Авторизация</div>
+  </div>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Введите логин</mat-label>
+      <input  type="text"
+              autofocus 
+              matInput  
+              placeholder="Введите логин" 
+              formControlName="login">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Введите пароль</mat-label>
+      <input  type="text"
+              matInput  
+              placeholder="Введите пароль" 
+              formControlName="password">
+    </mat-form-field>
+    <button class="submitBtn"
+            type="submit" 
+            mat-flat-button 
+            [disabled]="!authForm.valid">
+            Отправить
+    </button>
+  </form>
+</mat-card>

@@ -1,0 +1,59 @@
+<div class="body">
+  <mat-card class="document" *ngIf='approvalDocument'>
+    <div class="title">
+      <div class="title-text">Согласование документа</div>
+    </div>  
+    <object [data]="approvalDocument.src" class="document-preview" type="application/pdf"></object>
+    <div *ngIf='approveResult | async' class="overlay">
+      {{approveResult | async}}
+    </div>
+    <div *ngIf='!(approveResult | async)' (click)='showPDF()' class='clickBlock'></div>
+  </mat-card>
+  
+  <mat-card *ngIf='approvalDocument' class="approve">
+    <form [formGroup]='approveForm' (ngSubmit)='onSubmit()'>
+      <label class="subTitle">Состояние утверждения</label>
+      <mat-radio-group formControlName="state" aria-label="Select an option">
+        <mat-radio-button value="1">Утвердить</mat-radio-button>
+        <mat-radio-button value="0">Отклонить</mat-radio-button>
+      </mat-radio-group>
+      <mat-form-field class="example-full-width">
+        <mat-label>Укажите резолюцию</mat-label>
+        <input type="text"
+                placeholder="Выберите резолюцию"
+                aria-label="Number"
+                matInput
+                formControlName="resolution"
+                [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let resolution of resolutions" [value]="resolution">
+            {{resolution}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Укажите комментарий</mat-label>
+        <textarea matInput 
+                  placeholder="Укажите комментарий"
+                  formControlName="comment">
+        </textarea>
+      </mat-form-field>
+      <button class="submitBtn"
+              type="submit" 
+              mat-flat-button 
+              [disabled]="!approveForm.valid">
+              Отправить
+      </button>
+    </form>
+  </mat-card>
+</div>
+
+<div *ngIf="showedPDF | async as file" class="view">
+  <div class="modal">
+    <object [data]="file" class="picture picture-pdf" type="application/pdf"></object>
+    <button (click)="close()" mat-icon-button class="close">
+      <mat-icon>close</mat-icon>
+    </button>  
+  </div>
+  <div class="ovelay"></div>
+</div>

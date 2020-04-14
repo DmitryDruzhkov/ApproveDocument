@@ -1,0 +1,132 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 16px;
+  background-color: #ECF1F9;
+}
+
+.body {
+  display: flex;
+}
+
+.title {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-top: 32px;
+}
+
+.document {
+  margin-bottom: 24px;
+  width: fit-content;
+  margin-right: 32px;
+  position: relative;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  object {
+    width: 300px;
+    height: 420px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c2c2c2;
+    opacity: 0.9;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .clickBlock {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.approve {
+  width: fit-content;
+  height: fit-content;
+
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  mat-radio-button {
+    margin: 5px;
+  }
+
+  button {
+    width: fit-content;
+  }
+}
+
+.view {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .modal {
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .ovelay {
+    position: fixed;
+    background: #c2c2c2;
+    opacity: 0.5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.close {
+  position: absolute;
+  top: -8px;
+  right: -40px;
+  color: #FFFFFF;
+}
+
+.picture {
+  position: relative;
+  height: 100%;
+  left: 50%;
+  top: 0px;
+  transform: translateX(-50%);
+
+  &-pdf {
+    width: 25vw;
+  }
+}

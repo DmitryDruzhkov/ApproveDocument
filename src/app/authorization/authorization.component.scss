@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #ECF1F9;
+}
+
+.title {
+  display: flex;
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: fit-content;
+}
